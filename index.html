@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizer | Image Reducer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Image Reducer</h1>
+            <p>Compress images with ease and securely to under 1MB.</p>
+        </header>
+
+        <main>
+            <div id="drop-zone" class="drop-zone">
+                <div class="drop-zone-content">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                    <p>Drag and drop an image here</p>
+                    <span class="or-divider">or</span>
+                    <button class="btn-primary" id="browse-btn">Browse Files</button>
+                    <input type="file" id="file-input" accept="image/jpeg, image/png, image/webp" hidden>
+                </div>
+            </div>
+
+            <div id="result-container" class="result-container hidden">
+                <div class="comparison-grid">
+                    <div class="image-card original">
+                        <h3>Original</h3>
+                        <div class="image-wrapper">
+                            <img id="original-preview" src="" alt="Original Image">
+                        </div>
+                        <div class="stats">
+                            <span class="label">Size:</span>
+                            <span id="original-size" class="value">0 KB</span>
+                        </div>
+                    </div>
+
+                    <div class="image-card compressed">
+                        <h3>Compressed</h3>
+                        <div class="image-wrapper">
+                            <canvas id="compression-canvas" hidden></canvas>
+                            <img id="compressed-preview" src="" alt="Compressed Image">
+                        </div>
+                        <div class="stats">
+                            <span class="label">Size:</span>
+                            <span id="compressed-size" class="value">0 KB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="download-btn" class="btn-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download Image
+                    </button>
+                    <button id="reset-btn" class="btn-secondary">Compress Another</button>
+                </div>
+            </div>
+
+            <div id="loading-overlay" class="loading-overlay hidden">
+                <div class="spinner"></div>
+                <p>Compressing...</p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="credits">
+                <p>Built with ❤️ by <strong>Aldo</strong></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
